@@ -13,9 +13,9 @@ class EpistemicMaxEigen:
         assert torch.is_tensor(epistemic)
 
         assert epistemic.ndim == 3 and epistemic.size(-1) == epistemic.size(-2), \
-            f"epistemic must be (bs, d, d), got {tuple(predictive_var.shape)}"
+            f"epistemic must be (bs, d, d), got {tuple(epistemic.shape)}"
 
-        eigvals = torch.linalg.eigvalsh(predictive_var)  # (bs, d)
+        eigvals = torch.linalg.eigvalsh(epistemic)  # (bs, d)
         scores = eigvals[:, -1]  # max eig_val per sample
 
         return scores

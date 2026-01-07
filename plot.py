@@ -98,11 +98,32 @@ def aggregate_and_plot_only(files_by_acq, out_path_png, train_sizes=None, y_limi
 
 
 def main():
-    files_by_acq = {
+
+    """
+        files_by_acq = {
+        "MCDrop": ["outs/bcnnreg_predictive/MCUncertainty-Logdet/seed_573722947/results.json"],
         "MatNormAnalytic": ["outs/matrixnormalanalyticmodel/PredictiveVarLogDet/seed_1025115162/results.json"],
         "MeanFieldVI": ["outs/meanfieldmodel/fixed_lik_var/PredictiveVarLogDet/seed_185306943/results.json"],
         "MatNormVI": ["outs/matrixnormalmodel/pretrain_then_vi/prior_eq_lik_cov=False/PredictiveVarLogDet/seed_629823440/results.json"],
     }
+    """
+    """
+    files_by_acq = {
+        "LogDet": ["outs/bcnnreg_predictive/MCUncertainty-Logdet/seed_573722947/results.json"],
+        "MaxEigen": ["outs/bcnnreg_predictive/MCUncertainty-MaxEigVal/seed_265007579/results.json"],
+        "Trace": ["outs/bcnnreg_predictive/MCUncertainty-Trace/seed_1467815517/results.json"],
+        "Random": ["outs/bcnnreg_predictive/Random/seed_28950386/results.json"],
+    }
+    """
+    files_by_acq = {
+        "EpistemicLogDet": ["outs/matrixnormalanalyticmodel/EpistemicLogDet/seed_1040742537/results.json"],
+        "EpistemicMaxEigen": ["outs/matrixnormalanalyticmodel/EpistemicMaxEigen/seed_3053822/results.json"],
+        "PredictiveLogDet": ["outs/matrixnormalanalyticmodel/PredictiveVarLogDet/seed_1025115162/results.json"],
+        "PredictiveMaxEigen": ["outs/matrixnormalanalyticmodel/PredictiveVarMaxEigen/seed_893883265/results.json"],
+        "PredictiveTrace": ["outs/matrixnormalanalyticmodel/PredictiveVarTrace/seed_477472513/results.json"],
+        "Random": ["outs/matrixnormalanalyticmodel/Random/seed_395608269/results.json"],
+    }
+
     """
     files_by_acq = {
         "EpistemicLogDet": ["outs/meanfieldmodel/not_fixed_lik_var/EpistemicLogDet/seed_1237511014/results.json"],
@@ -163,7 +184,7 @@ def main():
     }
     """
 
-    out_path_png = "figs/new_baseline_comparison.png"
+    out_path_png = "figs/my_compare_analytic_inf.png"
 
     train_sizes = list(range(20, 1020 + 1, 10))
     y_limits_percent = (6.0, 30.0, 2)

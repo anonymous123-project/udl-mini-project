@@ -6,3 +6,4 @@ from .random import *
 
 from .pred_var_based import *
 from .epistemic_based import *
+from .pred_var_based_reg import *

@@ -1,4 +1,5 @@
 from .bcnn import *
+from .bcnn_reg import *
 from .dcnn import *
 from .spd_matrix import *
 from .matrix_normal_vi_model import *
